@@ -16,7 +16,7 @@
 #include "uart.h"
 #include "crsf_include.h"
 
-char tty1[20] = "/dev/ttyUSB4";
+char tty1[20] = "/dev/ttyTHS0";
 int fd1 = 0;
 
 int setSerialOpt(int fd, int nSpeed, int nBits, char nEvent, int nStop)

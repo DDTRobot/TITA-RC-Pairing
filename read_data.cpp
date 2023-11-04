@@ -30,11 +30,33 @@ bool uart_is_connected(void)
   return crsf.isUartConnected();
 }
 
-void read_data_start(void)
+bool elrs_is_binding(void)
+{
+  return crsf.is_binding;
+}
+
+void read_data_start(uint8 mode)
 {
   uint8 buf[UART_BUFFER];
+  if(mode == 0)
+  {
+    while (1)
+    {
+      if (wait_flag == 0)
+      {
+        memset(buf, 0, UART_BUFFER);
+        int RxLen = read(fd1, buf, UART_BUFFER);
 
-  while (1)
+        if (RxLen >= CRSF_PACKET_SIZE)
+        {
+          crsf.readPacket(buf,CRSF_PACKET_SIZE);
+        }
+        wait_flag = 1;
+      }
+    }
+    close(fd1);
+  }
+  else
   {
     if (wait_flag == 0)
     {
@@ -48,7 +70,6 @@ void read_data_start(void)
       wait_flag = 1;
     }
   }
-  close(fd1);
 }
 
 void signal_handler_IO(int status)

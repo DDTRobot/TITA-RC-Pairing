@@ -91,6 +91,7 @@ public:
     CRSF();
     ~CRSF();
     bool uart_connected;
+    bool is_binding;
     void readPacket(uint8_t* inData,uint8_t len);
 
     void begin();

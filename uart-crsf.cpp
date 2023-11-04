@@ -32,6 +32,8 @@ void CRSF::customer_data_callback(const uint8_t data[])
     } break;
 
     case CRSF_CUSTOMER_CMD_IS_BINGDING: {
+        printf("1\n");
+        is_binding = TRUE;
     } break;
 
     case CRSF_CUSTOMER_CMD_UART_LINKED: {
@@ -46,14 +48,12 @@ void CRSF::readPacket(uint8_t* inData,uint8_t len)
 {
     uint8_t frameLength, bufferIndex = 0;
 
-#if 0
     if (inData[0] == CRSF_CUSTOMER_CMD) {
       if (inData[1] == CRSF_CUSTOMER_CMD_REV_DATA) {
         customer_data_callback(&inData[2]);
         return;
       }
     }
-#endif
 
     if (bufferIndex == 0)
     {

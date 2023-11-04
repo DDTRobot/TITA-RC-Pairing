@@ -94,10 +94,15 @@ int main(int argc, char ** argv)
 		if(strcmp(argv[1],"-bind")==0)
 		{
       printf("正在进入配对模式...\n");
-      while(sleep(3));
+      uart_init();
+      while(sleep(2))
+      {
+        ElrsEnterBind();
+      }
       printf("bind mode success\n");
       printf("请打开遥控器,左长按右侧按键进入TOOLS->ExpressLRS->[Bind],手动搜索配对\n");
       ElrsEnterBind();
+      while(sleep(1));
       uart_init();
       onDataReceived(EnterBindModeCallBack);
     }
@@ -112,6 +117,6 @@ int main(int argc, char ** argv)
     }
 	}
 
-  read_data_start();
+  read_data_start(0);
   return 0;
 }
