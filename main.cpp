@@ -82,12 +82,13 @@ int main(int argc, char ** argv)
     if(strcmp(argv[1],"-wifi")==0)
     {
       printf("正在进入wifi模式...\n");
-      while(sleep(3));
-      ElrsEnterBind();
-      while(sleep(3));
+      uart_init();
+      while(sleep(2))
+      {
+        ElrsEnterWifi();
+      }
       printf("open wifi success\n");
       printf("请打开手机设备连接wifi,手动点击升级\n");
-      ElrsEnterWifi();
       return 0;
     }
 
