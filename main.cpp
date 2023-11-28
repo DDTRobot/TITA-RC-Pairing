@@ -6,9 +6,11 @@
 #include "type.h"
 #include "crsf_include.h"
 
+taskData crsf_app;
+
 void DataReadCallBack(const uint16_t channels[])
 {
-  printf("CH1: %d\tCH2: %d\tCH3: %d\tCH4: %d\tCH5: %d\tCH6: %d\tCH7: %d\tCH8: %d\n",       
+  printf("CH1: %d\tCH2: %d\tCH3: %d\tCH4: %d\tCH5: %d\tCH6: %d\tCH7: %d\tCH8: %d\tCH9: %d\tCH10: %d\tCH11: %d\tCH12: %d\tCH13: %d\tCH14: %d\tCH15: %d\tCH16: %d\t\n",       
       channels[0],
       channels[1],
       channels[2],
@@ -16,7 +18,15 @@ void DataReadCallBack(const uint16_t channels[])
       channels[4],
       channels[5],
       channels[6],
-      channels[7]);
+      channels[7],
+      channels[8],
+      channels[9],
+      channels[10],
+      channels[11],
+      channels[12],
+      channels[13],
+      channels[14],
+      channels[15]);
   printf("\n");
 }
 
@@ -30,16 +40,15 @@ void EnterWifiModeCallBack(const uint16_t channels[])
 
 void EnterBindModeCallBack(const uint16_t channels[])
 {
+  fflush(stdout); 
   printf("pair success\n");
-  sleep(1);
-  _exit(0);
+  crsf_app.result = 1;
 }
 
 void EnterRestartModeCallBack(const uint16_t channels[])
 {
-  printf("resta\n");
-  sleep(1);
-  _exit(0);
+  printf("restart success\n");
+  crsf_app.result = 1;
 }
 
 void ElrsRestart(void)
@@ -69,6 +78,7 @@ int main(int argc, char ** argv)
   while(sleep(1));
   if(uart_is_connected())
   {
+    fflush(stdout); 
     printf("uart connect success\n");
   }
   else
@@ -87,6 +97,7 @@ int main(int argc, char ** argv)
       {
         ElrsEnterWifi();
       }
+      fflush(stdout); 
       printf("open wifi success\n");
       printf("请打开手机设备连接wifi,手动点击升级\n");
       return 0;
@@ -100,6 +111,8 @@ int main(int argc, char ** argv)
       {
         ElrsEnterBind();
       }
+      fflush(stdout); 
+      fflush(stdout); 
       printf("bind mode success\n");
       printf("请打开遥控器,左长按右侧按键进入TOOLS->ExpressLRS->[Bind],手动搜索配对\n");
       ElrsEnterBind();
@@ -112,6 +125,7 @@ int main(int argc, char ** argv)
     {
       printf("正在重启...\n");
       while(sleep(3));
+      fflush(stdout); 
       printf("restart success\n");
       ElrsRestart();
       return 0;

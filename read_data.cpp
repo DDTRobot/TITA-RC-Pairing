@@ -40,7 +40,7 @@ void read_data_start(uint8 mode)
   uint8 buf[UART_BUFFER];
   if(mode == 0)
   {
-    while (1)
+    while (crsf_app.result == 0)
     {
       if (wait_flag == 0)
       {
