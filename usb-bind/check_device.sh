@@ -22,7 +22,7 @@ while true; do
             break  
         fi  
         # 如果没有找到设备且之前也没有执行过crsf-app -bind，则继续检查  
-        sleep 5  # 例如，等待5秒再次检查  
+        sleep 2  # 例如，等待5秒再次检查  
     fi  
 done  
   
