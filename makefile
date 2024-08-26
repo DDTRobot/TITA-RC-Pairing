@@ -4,10 +4,10 @@ CFLAGS=-c -Wall -g
   
 # 根据环境变量 UART_SOURCE 决定是否编译 uart.cpp 或 uart_ubuntu.cpp  
 ifeq ($(UART_SOURCE),0)  
-UART_OBJ=uart.cpp.o  
+UART_OBJ=uart_target.o
 UART_SRC=uart.cpp  
 else  
-UART_OBJ=uart_ubuntu.cpp.o  
+UART_OBJ=uart_target.o 
 UART_SRC=uart_ubuntu.cpp  
 endif  
   
