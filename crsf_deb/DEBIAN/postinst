@@ -1,0 +1,6 @@
+#!/bin/bash  
+set -e  
+cd ../usr/crsf-app
+chmod 777 install_ubuntu.sh
+sudo ./install_ubuntu.sh
+exit 0

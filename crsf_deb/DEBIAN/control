@@ -1,0 +1,10 @@
+Package: crsf-app
+Version: 1.0  
+Section: base  
+Priority: optional  
+Architecture: all  
+Depends: make, gcc, g++
+Maintainer: <wuyunzhou@directdrive.com>  
+Description: crsf app package  
+ .  
+ This package contains the crsf app files and dependencies.
