@@ -5,7 +5,7 @@ bound=false
   
 while true; do  
     # 查询ls /dev/serial/by-id  
-    DEVICE=$(ls /dev/serial/by-id | grep -i "LR3PRO")  
+    DEVICE=$(ls /dev/serial/by-id 2>/dev/null | grep -i "LR3PRO")
   
     # 检查是否找到了设备  
     if [[ -n "$DEVICE" ]]; then  
