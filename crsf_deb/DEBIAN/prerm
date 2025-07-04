@@ -13,6 +13,7 @@ rm -f /etc/systemd/system/check-device.service
 # Remove the executable scripts
 rm -f /usr/bin/crsf-app
 rm -f /usr/bin/check_device.sh
+rm -r /usr/usb-bind
  
 # Optionally, you can add more cleanup commands here if needed
  

@@ -1,6 +1,9 @@
-#!/bin/bash  
-set -e  
-cd ../usr/crsf-app
-chmod 777 install_ubuntu.sh
-sudo ./install_ubuntu.sh
+#!/bin/bash
+set -e
+cp /usr/usb-bind/check-device.service /etc/systemd/system/
+cp /usr/usb-bind//check_device.sh /usr/bin
+chmod 777 /usr/bin/check_device.sh
+systemctl daemon-reload
+systemctl enable check-device.service
+systemctl restart check-device.service
 exit 0
