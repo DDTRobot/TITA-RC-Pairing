@@ -1,4 +1,6 @@
-tita library for read CRSF data from a Serial Port (UART)
+tita library for reading CRSF data from a Serial Port (UART)
+
+crsf-app V1.1:
 
 
 ### To clone crsf-app:
@@ -6,16 +8,20 @@ tita library for read CRSF data from a Serial Port (UART)
     cd crsf-app
     
 ### To install crsf_deb.deb:
-    sudo dpkg -i crsf_deb.deb
+    sudo dpkg -i crsf-app_1.1-1_arm64.deb.deb
 
-### To install in ubuntu:
-    chmod 777 install_ubuntu.sh
-    sudo ./install_ubuntu.sh
+### To read channel data:
+    crsf-app
+    
+### To enter pairing:
+    crsf-app -bind
+    
+### To enter wifi mode:
+    crsf-app -wifi
 
-### To install in yocto:
-    chmod 777 install_ubuntu.sh
-    ./install_yocto.sh
-
+### To restart:
+    crsf-app -restart
+    
 ### To make crsf_deb.deb:
     chmod 0755 crsf_deb/DEBIAN/postinst
     chmod 0755 crsf_deb/DEBIAN/prerm
