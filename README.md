@@ -2,7 +2,7 @@ tita library for read CRSF data from a Serial Port (UART)
 
 
 ### To clone crsf-app:
-    git clone https://github.com/wuyunzhou123/crsf-app.git
+    git clone https://github.com/DDTRobot/TITA-RC-Pairing.git
     cd crsf-app
     
 ### To install crsf_deb.deb:
