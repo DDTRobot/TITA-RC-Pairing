@@ -5,7 +5,7 @@ tita library for reading CRSF data from a Serial Port (V1.1)
     cd crsf-app
     
 ### To install deb:
-    sudo dpkg -i crsf-app_1.1-1_arm64.deb.deb
+    sudo dpkg -i crsf-app_1.1-1_arm64.deb
 
 ### To read channel data:
     crsf-app
